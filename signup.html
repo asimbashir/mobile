@@ -13,12 +13,13 @@
           var pass = $.trim($('#pass').val());
           var fname = $.trim($('#fname').val());
           var lname = $.trim($('#lname').val());
-          if(!email || !pass || !fname ||!lname){
+          var pnumber = $.trim($('#pnumber').val());
+          if(!email || !pass || !fname ||!lname || !pnumber){
             alert('Please fill in all fields.');
             return false;
           }
 
-          $.get(backend_url+'main/signup?fname='+fname+'&lname='+lname+'&email='+email+'&pass='+pass, function( data ) {
+          $.get(backend_url+'main/signup?fname='+fname+'&lname='+lname+'&email='+email+'&pass='+pass+'&pnumber'+pnumber, function( data ) {
             if(data.success == 'true' || data.success == true){
               localStorage.setItem('uid', data.uid);
               var user = {'id' : data.uid, 'first_name' : fname, 'last_name' : lname, 'email' : email};
@@ -62,6 +63,9 @@
           
           <!--<label for="lname">Last Name:</label>-->
           <input type="text" name="lname" id="lname" value="" placeholder="Last Name" data-clear-btn="true" />
+
+          <!--<label for="lname">Last Name:</label>-->
+          <input type="text" name="pnumber" id="pnumber" value="" placeholder="Phone number" data-clear-btn="true" />
 
           <div style="width:50%; padding: 0 25% 0 25%"><input type="submit" value="Done" id="signup-done" /></div>
         </form>

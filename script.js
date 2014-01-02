@@ -15,14 +15,13 @@ function checkSesion() {
 
 $(document).on("pageinit", function(event) {
   var activePage = $(event.target);
-  //log(localStorage.user.first_name)
 
-  if (activePage[0].id != 'signup_page' && activePage[0].id != 'login_page' && activePage[0].id != 'home_page'
+  if (activePage[0].id != 'signup_page' && activePage[0].id != 'login_page' && activePage[0].id != 'home_page' && activePage[0].id != 'services_page' && activePage[0].id != 'contact_page'
           && (!localStorage.uid || !parseInt(localStorage.uid))) {
     window.location = 'signup.html';
   }
 
-  if ((activePage[0].id == 'signup_page' || activePage[0].id == 'login_page' || activePage[0].id == 'home_page') 
+  if ((activePage[0].id == 'signup_page' || activePage[0].id == 'login_page') 
           && (localStorage.uid && parseInt(localStorage.uid) > 0)) {
     window.location = 'services.html';
   }

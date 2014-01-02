@@ -8,6 +8,14 @@
     <script src="jquery.mobile-1.4.0.min.js"></script>
     <script>
       $(document).ready(function() {
+        uid = localStorage.getItem('uid');
+        if(uid) {
+          $("#say").attr("href", 'booking.html?si='+tabIndex);
+        } else{
+          $("#say").attr("placeholder", "Please login to comment or call us");
+          $("#say").attr("disabled", "disabled");
+          $("#contact-done").attr("disabled", "disabled");
+        }
         $("#contact-done").click(function(){
           var say = $.trim($('#say').val());
           if(!say){
