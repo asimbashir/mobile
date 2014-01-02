@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="script.js"></script>
+    <script src="jquery.mobile-1.4.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#login-done").click(function(){
+          var email = $.trim($('#email').val());
+          var pass = $.trim($('#pass').val());
+          if(!email || !pass){
+            alert('Please enter email address and password.');
+            return false;
+          }
+
+          $.get(backend_url+'main/login?email='+email+'&pass='+pass, function( data ) {
+            if(data.success == 'true' || data.success == true){
+              localStorage.setItem('uid', data.user.id);
+              localStorage.setItem('user', JSON.stringify(data.user));
+              //JSON.parse(localStorage.getItem('user'));
+              window.location = 'services.html';
+            } else{
+              if(data.msg){
+                alert(data.msg);
+              } else{}
+            }
+          });
+          return false;
+        });
+
+      });
+    </script>
+  </head>
+  <body>
+    <div data-role="page" id="login_page">
+      <div data-role="header">
+        <img src="images/vFixit-logo.png" alt="vFixit" class="header-logo" />
+      </div>
+
+      <div data-role="content">
+        <div class="intro">
+          <p>WHY REGISTER? Registering with the app adds convenience to usage of application. Booking services in the future 
+            will be quick. Contact us if you have a question.</p>
+        </div>
+
+        <form method="POST" id="form-booking">
+          <!--<label for="email">Email:</label>-->
+          <input type="text" name="email" id="email" value="" placeholder="Email Adress" data-clear-btn="true" />
+
+          <!--<label for="pass">Password:</label>-->
+          <input type="text" name="pass" id="pass" value="" placeholder="Password" data-clear-btn="true" />
+
+          <div style="width:50%; padding: 0 25% 0 25%"><input type="submit" value="Done" id="login-done" /></div>
+        </form>
+      </div>
+
+      <div data-role="footer">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="signup.html" id="signup-now">Sign up</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

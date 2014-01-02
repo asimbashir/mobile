@@ -1,0 +1,35 @@
+.clear{clear: both}
+#landing-logo { 
+  margin-top: 100px;
+  margin-left: 45%;
+}
+.home-categories{
+  text-align: center;
+}
+.home-grid{
+  text-align: center;
+  height: 50px
+}
+.home-grid a{margin: 0}
+.tablist-left {
+    width: 25%;
+    display: inline-block;
+}
+.tablist-content {
+    width: 60%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5%;
+}
+.intro{
+  border: 1px solid;
+  padding: 10px;
+/*  text-align: center;*/
+}
+.header-logo{
+  width: 138px;
+  height: 75px;
+}
+.ui-header{
+  text-align: center;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="script.js"></script>
+    <script src="jquery.mobile-1.4.0.min.js"></script>
+    <script>
+      //checkSesion();
+      var tabIndex = 1;
+      q_tab = parseInt(getParameterByName('ti'));
+      tabIndex = (q_tab > 0 && q_tab < 5) ? q_tab : tabIndex;
+      $(document).ready(function() {
+        $("#" + tabIndex).click();
+        $("#book-now").attr("href", 'booking.html?si='+tabIndex);
+        $(".services-left-tabs").click(function(){
+          $("#book-now").attr("href", 'booking.html?si='+$(this).attr('id'));
+        });
+      });
+    </script>
+  </head>
+  <body>
+
+    <div data-role="page" id="services_page">
+      <div data-role="header">
+        <img src="images/vFixit-logo.png" alt="vFixit" class="header-logo" />
+      </div>
+
+      <div data-role="content">
+        <div data-role="tabs">
+          <ul data-role="listview" data-inset="true" class="tablist-left booking-tab">
+            <li><a href="#one" data-ajax="false" id="1" class="services-left-tabs">House Keeping</a></li>
+            <li><a href="#two" data-ajax="false" id="2" class="services-left-tabs">Electrician</a></li>
+            <li><a href="#three" data-ajax="false" id="3" class="services-left-tabs">Plumber</a></li>
+            <li><a href="#four" data-ajax="false" id="4" class="services-left-tabs">Mechanic</a></li>
+            <!--<li><a href="ajax-content.html" data-ajax="false">three</a></li>-->
+          </ul>
+          <div id="one" class="ui-body-d tablist-content">
+            <h1>House Keeping Detail text</h1>
+          </div>
+          <div id="two" class="ui-body-d tablist-content">
+            <h1>Electrician Detail text</h1>
+          </div>
+          <div id="three" class="ui-body-d tablist-content">
+            <h1>Plumber Detail text</h1>
+          </div>
+          <div id="four" class="ui-body-d tablist-content">
+            <h1>Mechanic Detail text</h1>
+          </div>
+        </div>
+      </div>
+
+      <div data-role="footer">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="booking.html" id="book-now">Book now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

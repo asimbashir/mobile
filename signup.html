@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="script.js"></script>
+    <script src="jquery.mobile-1.4.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#signup-done").click(function(){
+          var email = $.trim($('#email').val());
+          var pass = $.trim($('#pass').val());
+          var fname = $.trim($('#fname').val());
+          var lname = $.trim($('#lname').val());
+          if(!email || !pass || !fname ||!lname){
+            alert('Please fill in all fields.');
+            return false;
+          }
+
+          $.get(backend_url+'main/signup?fname='+fname+'&lname='+lname+'&email='+email+'&pass='+pass, function( data ) {
+            if(data.success == 'true' || data.success == true){
+              localStorage.setItem('uid', data.uid);
+              var user = {'id' : data.uid, 'first_name' : fname, 'last_name' : lname, 'email' : email};
+              localStorage.setItem('user', JSON.stringify(user));
+              window.location = 'services.html';
+            } else{
+              if(data.msg){
+                alert(data.msg);
+              } else{
+                //alert();
+              }
+            }
+          });
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div data-role="page" id="signup_page">
+      <div data-role="header">
+        <img src="images/vFixit-logo.png" alt="vFixit" class="header-logo" />
+      </div>
+
+      <div data-role="content">
+
+        <div class="intro">
+          <p>WHY REGISTER? Registering with the app adds convenience to usage of application. Booking services in the future 
+            will be quick. Contact us if you have a question.</p>
+        </div>
+
+        <form method="POST" id="form-booking">
+          <!--<label for="email">Email:</label>-->
+          <input type="text" name="email" id="email" value="" placeholder="Email Adress" data-clear-btn="true" />
+
+          <!--<label for="pass">Password:</label>-->
+          <input type="text" name="pass" id="pass" value="" placeholder="Password" data-clear-btn="true" />
+          
+          <!--<label for="fname">First Name :</label>-->
+          <input type="text" name="fname" id="fname" value="" placeholder="First Name" data-clear-btn="true" />
+          
+          <!--<label for="lname">Last Name:</label>-->
+          <input type="text" name="lname" id="lname" value="" placeholder="Last Name" data-clear-btn="true" />
+
+          <div style="width:50%; padding: 0 25% 0 25%"><input type="submit" value="Done" id="signup-done" /></div>
+        </form>
+      </div>
+
+      <div data-role="footer">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="signup.html" id="signup-now">Sign up</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
