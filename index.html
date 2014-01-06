@@ -6,19 +6,28 @@
     <script src="jquery-1.9.1.min.js"></script>
     <script src="script.js"></script>
     <script src="jquery.mobile-1.4.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        uid = localStorage.getItem('uid');
+        if (uid) {
+          $("#signup-now").attr("href", 'tips.html');
+          $("#signup-now").html("Tips");
+        }
+      });
+    </script>
   </head>
   <body>
     <div data-role="page" id="home_page">
       <div data-role="header">
-        <img src="images/vFixit-logo.png" alt="vFixit" class="header-logo" />
+        <div class="logo"><a href="index.html"><img src="images/vFixit-logo.png" alt="vFixit" class="header-logo" /></a></div>
       </div>
 
       <div data-role="content">
         <div class="ui-grid-a">
-          <div class="ui-block-a"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=1">House Keeping</a></div></div>
-          <div class="ui-block-b"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=2">Electrician</a></div></div>
-          <div class="ui-block-a"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=3">Plumber</a></div></div>
-          <div class="ui-block-b"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=4">Mechanic</a></div></div>
+          <div class="ui-block-a"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=1"><img src="images/housekeeping.png" alt="House Keeping" /><br/>House Keeping</a></div></div>
+          <div class="ui-block-b"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=2"><img src="images/electrician.png" alt="Electrician" /><br/>Electrician</a></div></div>
+          <div class="ui-block-a"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=3"><img src="images/plumber.png" alt="Plumber" /><br/>Plumber</a></div></div>
+          <div class="ui-block-b"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=4"><img src="images/mechanic.png" alt="Mechanic" /><br/>Mechanic</a></div></div>
         </div>
       </div>
 

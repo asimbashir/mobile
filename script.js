@@ -1,5 +1,5 @@
-//var backend_url = 'http://localhost/mobile_be/index.php/';
-var backend_url = 'http://vfixit.netii.net/index.php/';
+var backend_url = 'http://localhost/mobile_be/index.php/';
+//var backend_url = 'http://vfixit.netii.net/index.php/';
 
 function log(data) {
   console.log(data);

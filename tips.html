@@ -6,33 +6,42 @@
     <script src="jquery-1.9.1.min.js"></script>
     <script src="script.js"></script>
     <script src="jquery.mobile-1.4.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $.get(backend_url+'main/tips', function(data) {
+          if (data.success == 'true' || data.success == true) {
+            if (data.tips) {
+              var tips = '<ul>';
+              $.each(data.tips, function(index, value){
+                tips += '<li>'+ value +'</li>'
+              });
+              tips += '</ul>';
+              $('.tips').html(tips);
+            } else {
+              $('.tips').html('Something went wrong. Please try again later');
+            }
+          } else {}
+        });
+      });
+    </script>
   </head>
   <body>
-    <div data-role="page" id="contact_page">
+    <div data-role="page" id="tips_page">
       <div data-role="header">
         <div class="logo"><a href="index.html"><img src="images/vFixit-logo.png" alt="vFixit" class="header-logo" /></a></div>
       </div>
 
       <div data-role="content">
-        <div class="intro">
-          <p>Call us:  +974 2121213</p>
-          <p>BB pin :  1213asa12</p>
-          <p>Email  :  sami.shafique@gmail.com</p>
-          <p>Address:  Main Boulevard Doha qatar</p>
+        <h1>Tips</h1>
+        <div class="tips">
         </div>
-
-<!--        <form method="POST" id="form-booking">
-          <input type="text" name="say" id="say" value="" placeholder="Say something..." data-clear-btn="true" />
-          <div style="width:50%; padding: 0 25% 0 25%"><input type="submit" value="Done" id="contact-done" /></div>
-        </form>-->
-        <a href="tel:+923224535883" data-role="button">Dial now</a>
       </div>
 
       <div data-role="footer">
         <div data-role="navbar">
           <ul>
             <li><a href="services.html" id="book-now">Services</a></li>
-            <li><a href="booking.html">Booking</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
       </div>

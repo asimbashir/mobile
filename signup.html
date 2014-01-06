@@ -19,7 +19,7 @@
             return false;
           }
 
-          $.get(backend_url+'main/signup?fname='+fname+'&lname='+lname+'&email='+email+'&pass='+pass+'&pnumber'+pnumber, function( data ) {
+          $.get(backend_url+'main/signup?fname='+fname+'&lname='+lname+'&email='+email+'&pass='+pass+'&pnumber='+pnumber, function( data ) {
             if(data.success == 'true' || data.success == true){
               localStorage.setItem('uid', data.uid);
               var user = {'id' : data.uid, 'first_name' : fname, 'last_name' : lname, 'email' : email};
@@ -41,7 +41,7 @@
   <body>
     <div data-role="page" id="signup_page">
       <div data-role="header">
-        <img src="images/vFixit-logo.png" alt="vFixit" class="header-logo" />
+        <div class="logo"><a href="index.html"><img src="images/vFixit-logo.png" alt="vFixit" class="header-logo" /></a></div>
       </div>
 
       <div data-role="content">

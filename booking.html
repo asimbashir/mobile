@@ -18,7 +18,7 @@
           payment_mode = $('[name=radio-payment]:checked').val();
           service  = $('#services-select').val();
           $.get(backend_url+'main/booking?payment_mode='+payment_mode+'&service='+service+'&uid='+localStorage.getItem("uid"), function( data ) {
-            alert('Thank you. Your request has been sent for further processing.');
+            alert(data.msg);
             window.location('services.html');
           });
           return false;
@@ -29,7 +29,7 @@
   <body>
     <div data-role="page" id="booking_page">
       <div data-role="header">
-        <img src="images/vFixit-logo.png" alt="vFixit" class="header-logo" />
+        <div class="logo"><a href="index.html"><img src="images/vFixit-logo.png" alt="vFixit" class="header-logo" /></a></div>
       </div>
 
       <div data-role="content">
@@ -50,6 +50,15 @@
 
           <div style="width:50%; padding: 0 25% 0 25%"><input type="submit" value="Done" id="booking-done" /></div>
         </form>
+      </div>
+
+      <div data-role="footer">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="booking.html">Book now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
       </div>
 
     </div>

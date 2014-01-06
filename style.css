@@ -8,9 +8,16 @@
 }
 .home-grid{
   text-align: center;
-  height: 50px
 }
-.home-grid a{margin: 0}
+.home-grid a{
+  margin: 0;
+  padding: 0;
+  font-weight: normal !important;
+}
+.home-grid a img{
+  width: 80px;
+  height: 80px;
+}
 .tablist-left {
     width: 25%;
     display: inline-block;
