@@ -13,6 +13,7 @@
   margin: 0;
   padding: 0;
   font-weight: normal !important;
+  color: #3388CC !important;
 }
 .home-grid a img{
   width: 80px;
@@ -39,4 +40,28 @@
 }
 .ui-header{
   text-align: center;
+  background-color: #3388CC !important;
+}
+.ui-header{
+  text-align: center;
+  background-color: #3388CC !important;
+}
+.ui-navbar .ui-btn:hover, .ui-btn:hover{
+  color: #fff !important;
+  background-color: #3388CC !important;
+}
+.ui-footer .ui-navbar ul li a{
+  background-color: #686868 !important;
+  color: #fff !important;
+}
+h1, .ui-content .intro p span{
+  color: #3388CC !important;
+}
+.ui-content{
+  margin-bottom: 25px;
+}
+.ui-footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
