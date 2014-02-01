@@ -16,8 +16,8 @@ function checkSesion() {
 
 $(document).on("pageinit", function(event) {
   var activePage = $(event.target);
-
-  if (activePage[0].id != 'signup_page' && activePage[0].id != 'login_page' && activePage[0].id != 'home_page' && activePage[0].id != 'services_page' && activePage[0].id != 'contact_page'
+  
+  if (activePage[0].id != 'splash_screen' && activePage[0].id != 'signup_page' && activePage[0].id != 'login_page' && activePage[0].id != 'home_page' && activePage[0].id != 'services_page' && activePage[0].id != 'contact_page'
           && (!localStorage.uid || !parseInt(localStorage.uid))) {
     window.location = 'signup.html';
   }
@@ -30,11 +30,31 @@ $(document).on("pageinit", function(event) {
 });
 
 $(document).bind("mobileinit", function() {
+  $('.spalsh').on('touchmove', false);
   $('a').attr('data-role', 'false');
   $.mobile.ajaxEnabled = false;
 });
+
+$(document).bind("pageshow", function() {
+  var height = window.innerHeight ? window.innerHeight : $(window).height();
+  $('.ui-content').height((height - (107+35+20+10))); // Header+footer+padding(top,bottom)+margin-bottom
+});
+
 $(document).ready(function() {
   $('a').attr('data-ajax', 'false');
+  var height = window.innerHeight ? window.innerHeight : $(window).height();
+  var width = window.innerWidth ? window.innerWidth : $(window).width();
+
+  if(width > 300){
+    $('.splash').css({'left': ((width-300)/2)});
+  } else{
+    $('.splash').css({'left': 0});
+  }
+  if(height > 175){
+    $('.splash').css({'top': ((height-175)/2.5)});
+  } else{
+    $('.splash').css({'top': 0});
+  }
 });
 
 function getUrlVars()
