@@ -3,11 +3,22 @@
   <head>
     <link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+
     <script src="jquery-1.9.1.min.js"></script>
+
+    <!-- Include js plugin -->
+    <script src="owl-carousel/owl.carousel.min.js"></script>
+
     <script src="script.js"></script>
     <script src="jquery.mobile-1.4.0.min.js"></script>
     <script>
       $(document).ready(function() {
+        $("#home-carousel").owlCarousel();
         uid = localStorage.getItem('uid');
         if (uid) {
           $("#signup-now").attr("href", 'tips.html');
@@ -24,11 +35,19 @@
       </div>
 
       <div data-role="content">
-        <div class="ui-grid-a">
-          <div class="ui-block-a"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=1"><img src="images/housekeeping.png" alt="House Keeping" /><br/>House Keeping</a></div></div>
-          <div class="ui-block-b"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=2"><img src="images/electrician.png" alt="Electrician" /><br/>Electrician</a></div></div>
-          <div class="ui-block-a"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=3"><img src="images/plumber.png" alt="Plumber" /><br/>Plumber</a></div></div>
-          <div class="ui-block-b"><div class="ui-bar ui-bar-a home-grid"><a data-ajax="false" href="services.html?ti=4"><img src="images/mechanic.png" alt="Mechanic" /><br/>Mechanic</a></div></div>
+        <div id="home-carousel" class="owl-carousel">
+          <div>
+            <a data-ajax="false" href="services.html?ti=1"><img src="images/housekeeping.png" alt="House Keeping" /><br/>House Keeping</a>
+          </div>
+          <div>
+            <a data-ajax="false" href="services.html?ti=2"><img src="images/electrician.png" alt="Electrician" /><br/>Electrician</a>
+          </div>
+          <div>
+            <a data-ajax="false" href="services.html?ti=3"><img src="images/plumber.png" alt="Plumber" /><br/>Plumber</a>
+          </div>
+          <div>
+            <a data-ajax="false" href="services.html?ti=4"><img src="images/mechanic.png" alt="Mechanic" /><br/>Mechanic</a>
+          </div>
         </div>
         <h1>About us</h1>
         <p>Solution to your household utility problems - the FIX is 3 clicks away. Our service bundle includes Housekeeping, Plumbing, Electrician, and Car Mechanic. Expect professional, prompt and premium service quality.</p>
